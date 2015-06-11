@@ -246,7 +246,25 @@ print(var_one)
 foo = long_function_name(
     var_one, <span class="keyword">var_t</span>wo,
     <span class="keyword">var_t</span>hree, var_four)
-</code></pre>
+</code></pre><p>当if表达式的条件部分太长时就需要跨越多行，使用“if (”构造一个人工的4-space缩进是不提倡的.这会与潜逃在if表达式内的代码构成视觉冲突，因为这部分代码也是四个空格的缩进.、<br>可用的方式有：</p>
+<pre><code><span class="preprocessor"># 没有额外的缩进.</span>
+<span class="keyword">if</span> (<span class="keyword">this_is_one_t</span>hing and
+    <span class="keyword">that_is_another_t</span>hing):
+    do_something()
+
+<span class="preprocessor"># 添加注释可以产生一些视觉的区分</span>
+<span class="preprocessor"># 支持语法高亮.</span>
+<span class="keyword">if</span> (<span class="keyword">this_is_one_t</span>hing and
+    <span class="keyword">that_is_another_t</span>hing):
+    <span class="preprocessor"># Since both conditions are true, we can frobnicate.</span>
+    do_something()
+
+<span class="preprocessor">#在后续的条件行前添加额外的缩进.</span>
+<span class="keyword">if</span> (<span class="keyword">this_is_one_t</span>hing
+        and <span class="keyword">that_is_another_t</span>hing):
+    do_something()
+</code></pre><p>多行构造器的闭合大/中/小括号或者与上一行的第一个非空字符对齐：<br>    my_list = [<br>        1, 2, 3,<br>        4, 5, 6,<br>        ]<br>    result = some_function_that_takes_arguments(<br>        ‘a’, ‘b’, ‘c’,<br>        ‘d’, ‘e’, ‘f’,<br>        )<br>或者与多行构造器第一行的第一个字母对齐：<br>    my_list = [<br>        1, 2, 3,<br>        4, 5, 6,<br>    ]<br>    result = some_function_that_takes_arguments(<br>        ‘a’, ‘b’, ‘c’,<br>        ‘d’, ‘e’, ‘f’,<br>    )</p>
+
       
     </div>
     
