@@ -3,29 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>PEP8编码规范 | 我是皮匠</title>
+  <title>PEP 8 编码规范 | 我是皮匠</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PEP 8 —— 编码规范代码缩进  使用四空格.
+  <meta name="description" content="代码缩进  使用四空格.
   当代码连续多行时，我们应该使用小括号，中括号，大括号或者悬挂缩进对其隐式行链接.当使用悬挂缩进时应当保证：第一行没有代码，接下来的缩进明确的区分自己作为接下来的行.
   YES:
-# Aligned with opening delimiter.
+# 与开头的分隔符对齐.
 foo = long_function_name(var_one, var_two,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PEP8编码规范">
+<meta property="og:title" content="PEP 8 编码规范">
 <meta property="og:url" content="/2015/06/11/PEP8编码规范/index.html">
 <meta property="og:site_name" content="我是皮匠">
-<meta property="og:description" content="PEP 8 —— 编码规范代码缩进  使用四空格.
+<meta property="og:description" content="代码缩进  使用四空格.
   当代码连续多行时，我们应该使用小括号，中括号，大括号或者悬挂缩进对其隐式行链接.当使用悬挂缩进时应当保证：第一行没有代码，接下来的缩进明确的区分自己作为接下来的行.
   YES:
-# Aligned with opening delimiter.
+# 与开头的分隔符对齐.
 foo = long_function_name(var_one, var_two,">
-<meta property="og:updated_time" content="2015-06-11T05:18:29.408Z">
+<meta property="og:updated_time" content="2015-06-11T05:29:14.736Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PEP8编码规范">
-<meta name="twitter:description" content="PEP 8 —— 编码规范代码缩进  使用四空格.
+<meta name="twitter:title" content="PEP 8 编码规范">
+<meta name="twitter:description" content="代码缩进  使用四空格.
   当代码连续多行时，我们应该使用小括号，中括号，大括号或者悬挂缩进对其隐式行链接.当使用悬挂缩进时应当保证：第一行没有代码，接下来的缩进明确的区分自己作为接下来的行.
   YES:
-# Aligned with opening delimiter.
+# 与开头的分隔符对齐.
 foo = long_function_name(var_one, var_two,">
   
   
@@ -100,11 +100,7 @@ foo = long_function_name(var_one, var_two,">
 					<nav class="header-menu">
 						<ul>
 						
-							<li><a href="/">主页</a></li>
-				        
 							<li><a href="/archives">所有文章</a></li>
-				        
-							<li><a href="/tags/机器学习">机器学习</a></li>
 				        
 							<li><a href="/tags/python">python</a></li>
 				        
@@ -177,11 +173,7 @@ foo = long_function_name(var_one, var_two,">
 			<nav class="header-menu">
 				<ul>
 				
-					<li><a href="/">主页</a></li>
-		        
 					<li><a href="/archives">所有文章</a></li>
-		        
-					<li><a href="/tags/机器学习">机器学习</a></li>
 		        
 					<li><a href="/tags/python">python</a></li>
 		        
@@ -223,7 +215,7 @@ foo = long_function_name(var_one, var_two,">
         
   
     <h1 class="article-title" itemprop="name">
-      PEP8编码规范
+      PEP 8 编码规范
     </h1>
   
 
@@ -243,23 +235,39 @@ foo = long_function_name(var_one, var_two,">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="PEP_8_——_编码规范">PEP 8 —— 编码规范</h1><h2 id="代码缩进">代码缩进</h2><p>  使用四空格.</p>
+        <h2 id="代码缩进">代码缩进</h2><p>  使用四空格.</p>
 <p>  当代码连续多行时，我们应该使用小括号，中括号，大括号或者悬挂缩进对其隐式行链接.当使用悬挂缩进时应当保证：第一行没有代码，接下来的缩进明确的区分自己作为接下来的行.</p>
 <p>  YES:</p>
-<pre><code><span class="comment"># Aligned with opening delimiter.</span>
+<pre><code><span class="comment"># 与开头的分隔符对齐.</span>
 foo = long_function_name(var_one, var_two,
                                               var_three, var_four)
 
-<span class="comment"># More indentation included to distinguish this from the rest.</span>
+<span class="comment"># 使用更多的缩进与其余代码区分.</span>
 <span class="function"><span class="keyword">def</span> <span class="title">long_function_name</span><span class="params">(
             var_one, var_two, var_three,
             var_four)</span>:</span>
     print(var_one)
 
-<span class="comment"># Hanging indents should add a level.</span>
+<span class="comment"># 增加一级悬挂缩进l.</span>
 foo = long_function_name(
     var_one, var_two,
     var_three, var_four)
+</code></pre><p>  NO:</p>
+<pre><code><span class="comment"># 当纵向没有对齐时第一行不允许有参数.</span>
+foo = long_function_name(var_one, var_two,
+    var_three, var_four)
+
+<span class="comment"># 由于缩进并不鲜明所以需要更多的缩进.</span>
+<span class="function"><span class="keyword">def</span> <span class="title">long_function_name</span><span class="params">(
+    var_one, var_two, var_three,
+    var_four)</span>:</span>
+print(var_one)
+</code></pre><p>四空格规则对于连续多行也是可选的.</p>
+<p>Optional:</p>
+<pre><code><span class="preprocessor"># Hanging indents *may* be indented to other than 4 spaces.</span>
+foo = long_function_name(
+    var_one, <span class="keyword">var_t</span>wo,
+    <span class="keyword">var_t</span>hree, var_four)
 </code></pre>
       
     </div>
@@ -300,7 +308,7 @@ foo = long_function_name(
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="PEP8编码规范" data-title="PEP8编码规范" data-url="/2015/06/11/PEP8编码规范/"></div>
+	<div class="ds-thread" data-thread-key="PEP8编码规范" data-title="PEP 8 编码规范" data-url="/2015/06/11/PEP8编码规范/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

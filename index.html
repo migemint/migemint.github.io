@@ -87,11 +87,7 @@
 					<nav class="header-menu">
 						<ul>
 						
-							<li><a href="/">主页</a></li>
-				        
 							<li><a href="/archives">所有文章</a></li>
-				        
-							<li><a href="/tags/机器学习">机器学习</a></li>
 				        
 							<li><a href="/tags/python">python</a></li>
 				        
@@ -164,11 +160,7 @@
 			<nav class="header-menu">
 				<ul>
 				
-					<li><a href="/">主页</a></li>
-		        
 					<li><a href="/archives">所有文章</a></li>
-		        
-					<li><a href="/tags/机器学习">机器学习</a></li>
 		        
 					<li><a href="/tags/python">python</a></li>
 		        
@@ -212,7 +204,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/11/PEP8编码规范/">PEP8编码规范</a>
+      <a class="article-title" href="/2015/06/11/PEP8编码规范/">PEP 8 编码规范</a>
     </h1>
   
 
@@ -221,23 +213,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="PEP_8_——_编码规范">PEP 8 —— 编码规范</h1><h2 id="代码缩进">代码缩进</h2><p>  使用四空格.</p>
+        <h2 id="代码缩进">代码缩进</h2><p>  使用四空格.</p>
 <p>  当代码连续多行时，我们应该使用小括号，中括号，大括号或者悬挂缩进对其隐式行链接.当使用悬挂缩进时应当保证：第一行没有代码，接下来的缩进明确的区分自己作为接下来的行.</p>
 <p>  YES:</p>
-<pre><code><span class="comment"># Aligned with opening delimiter.</span>
+<pre><code><span class="comment"># 与开头的分隔符对齐.</span>
 foo = long_function_name(var_one, var_two,
                                               var_three, var_four)
 
-<span class="comment"># More indentation included to distinguish this from the rest.</span>
+<span class="comment"># 使用更多的缩进与其余代码区分.</span>
 <span class="function"><span class="keyword">def</span> <span class="title">long_function_name</span><span class="params">(
             var_one, var_two, var_three,
             var_four)</span>:</span>
     print(var_one)
 
-<span class="comment"># Hanging indents should add a level.</span>
+<span class="comment"># 增加一级悬挂缩进l.</span>
 foo = long_function_name(
     var_one, var_two,
     var_three, var_four)
+</code></pre><p>  NO:</p>
+<pre><code><span class="comment"># 当纵向没有对齐时第一行不允许有参数.</span>
+foo = long_function_name(var_one, var_two,
+    var_three, var_four)
+
+<span class="comment"># 由于缩进并不鲜明所以需要更多的缩进.</span>
+<span class="function"><span class="keyword">def</span> <span class="title">long_function_name</span><span class="params">(
+    var_one, var_two, var_three,
+    var_four)</span>:</span>
+print(var_one)
+</code></pre><p>四空格规则对于连续多行也是可选的.</p>
+<p>Optional:</p>
+<pre><code><span class="preprocessor"># Hanging indents *may* be indented to other than 4 spaces.</span>
+foo = long_function_name(
+    var_one, <span class="keyword">var_t</span>wo,
+    <span class="keyword">var_t</span>hree, var_four)
 </code></pre>
       
     </div>
