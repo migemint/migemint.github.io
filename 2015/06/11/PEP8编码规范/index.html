@@ -19,7 +19,7 @@ foo = long_function_name(var_one, var_two,">
   YES:
 # 与开头的分隔符对齐.
 foo = long_function_name(var_one, var_two,">
-<meta property="og:updated_time" content="2015-06-11T11:16:53.979Z">
+<meta property="og:updated_time" content="2015-06-11T11:18:41.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PEP 8 编码规范">
 <meta name="twitter:description" content="布局代码缩进  使用四空格.
@@ -337,7 +337,8 @@ foo = long_function_name(
 <p>在标准库中, 非默认编码仅仅应该用于测试目的或者文档需要提到包含非ASCII编码字符的作者姓名；否则使用\x, \u, \U or \N 来替代在字符文字中使用非ASCII数据.</p>
 <p>对于Python 3.0以及后续版本， 接下来的条目将是规定：所有Python标准库MUST中的标识符使用ASCII-only的标识符，并且应该使用英文单词.另外string字符和注释也必须使用ASCII字符.仅有的例外与上面提到的例外一致.</p>
 <h3 id="引用">引用</h3><ul>
-<li><p>引用应该被分割为多行<br>  YES:  import os</p>
+<li><p>引用应该被分割为多行</p>
+<p>  YES:  import os</p>
 <pre><code><span class="preprocessor"><span class="keyword">import</span> sys</span>
 </code></pre><p>  NO:  import sys, os</p>
 </li>
@@ -355,10 +356,14 @@ foo = long_function_name(
 <p>应该用空行将每组引用隔开.</p>
 <p>将任意相关的 <em> _al </em> _ 放在引用后.</p>
 <ul>
-<li>推荐使用绝对引用，因为这样往往更具有可读性并且在引用系统错误配置时会有更好的行为（或者至少是更好的错误信息）.<br>  import mypkg.sibling<br>  from mypkg import sibling<br>  from mypkg.sibling import example</li>
+<li><p>推荐使用绝对引用，因为这样往往更具有可读性并且在引用系统错误配置时会有更好的行为（或者至少是更好的错误信息）.</p>
+<p>  import mypkg.sibling<br>  from mypkg import sibling<br>  from mypkg.sibling import example</p>
+</li>
 </ul>
-<p>然而显式相对引用也是可以接收的，尤其是使用绝对引入在处理复杂报结构时可能会过于冗长：<br>    from . import sibling<br>    from .sibling import sample</p>
-<p>标准库代码应该避免复杂的包结构并且总是使用绝对引用.</p>
+<p>然而显式相对引用也是可以接收的，尤其是使用绝对引入在处理复杂报结构时可能会过于冗长：</p>
+<pre><code><span class="keyword">from</span> . <span class="keyword">import</span> sibling
+<span class="keyword">from</span> .sibling <span class="keyword">import</span> sample
+</code></pre><p>标准库代码应该避免复杂的包结构并且总是使用绝对引用.</p>
 <p>隐式相对导入不应该被使用并且在Python 3中已经被移除了.</p>
 <ul>
 <li>通配符引用（from <module> import *）应该避免，因为他们会使得命名空间中的名字混淆，迷惑读者以及许多自动工具.这里有一个使用通配符引用的特例,当从新发布一个内部接口作为公共API的一部分时.</module></li>
