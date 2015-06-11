@@ -315,13 +315,14 @@ foo = long_function_name(
 <p>在标准库中, 非默认编码仅仅应该用于测试目的或者文档需要提到包含非ASCII编码字符的作者姓名；否则使用\x, \u, \U or \N 来替代在字符文字中使用非ASCII数据.</p>
 <p>对于Python 3.0以及后续版本， 接下来的条目将是规定：所有Python标准库MUST中的标识符使用ASCII-only的标识符，并且应该使用英文单词.另外string字符和注释也必须使用ASCII字符.仅有的例外与上面提到的例外一致.</p>
 <h3 id="引用">引用</h3><ul>
-<li><p>引用应该被分割为多行</p>
-<p>  YES :  import os</p>
-<pre><code><span class="preprocessor"><span class="keyword">import</span> sys</span>
-</code></pre><p>  NO :  import sys, os</p>
-</li>
+<li>引用应该被分割为多行</li>
 </ul>
-<p>这种方式是允许的:<br>    from subprocess import Popen, PIPE</p>
+<p>YES :</p>
+<pre><code><span class="preprocessor"><span class="keyword">import</span> os</span>
+         <span class="preprocessor"><span class="keyword">import</span> sys</span>
+</code></pre><p>NO :</p>
+<pre><code><span class="preprocessor"><span class="keyword">import</span> sys, os</span>
+</code></pre><p>这种方式是允许的:<br>    from subprocess import Popen, PIPE</p>
 <ul>
 <li>引用永远放在文件的开头，在任意模块注释和文档之后，在模块全局变量和常量之前.</li>
 </ul>
