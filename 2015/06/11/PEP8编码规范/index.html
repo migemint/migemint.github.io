@@ -19,7 +19,7 @@ foo = long_function_name(var_one, var_two,">
   YES:
 # 与开头的分隔符对齐.
 foo = long_function_name(var_one, var_two,">
-<meta property="og:updated_time" content="2015-06-11T08:50:07.171Z">
+<meta property="og:updated_time" content="2015-06-11T11:16:53.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PEP 8 编码规范">
 <meta name="twitter:description" content="布局代码缩进  使用四空格.
@@ -339,13 +339,31 @@ foo = long_function_name(
 <h3 id="引用">引用</h3><ul>
 <li><p>引用应该被分割为多行<br>  YES:  import os</p>
 <pre><code><span class="preprocessor"><span class="keyword">import</span> sys</span>
-</code></pre><p>   NO:  import sys, os</p>
+</code></pre><p>  NO:  import sys, os</p>
 </li>
 </ul>
 <p>这种方式是允许的:<br>    from subprocess import Popen, PIPE</p>
 <ul>
 <li>引用永远放在文件的开头，在任意模块注释和文档之后，在模块全局变量和常量之前.</li>
 </ul>
+<p>引用应该被分为如下组：</p>
+<ol>
+<li>标准库引用</li>
+<li>相关第三方引用</li>
+<li>本地应用/库引用</li>
+</ol>
+<p>应该用空行将每组引用隔开.</p>
+<p>将任意相关的 <em> _al </em> _ 放在引用后.</p>
+<ul>
+<li>推荐使用绝对引用，因为这样往往更具有可读性并且在引用系统错误配置时会有更好的行为（或者至少是更好的错误信息）.<br>  import mypkg.sibling<br>  from mypkg import sibling<br>  from mypkg.sibling import example</li>
+</ul>
+<p>然而显式相对引用也是可以接收的，尤其是使用绝对引入在处理复杂报结构时可能会过于冗长：<br>    from . import sibling<br>    from .sibling import sample</p>
+<p>标准库代码应该避免复杂的包结构并且总是使用绝对引用.</p>
+<p>隐式相对导入不应该被使用并且在Python 3中已经被移除了.</p>
+<ul>
+<li>通配符引用（from <module> import *）应该避免，因为他们会使得命名空间中的名字混淆，迷惑读者以及许多自动工具.这里有一个使用通配符引用的特例,当从新发布一个内部接口作为公共API的一部分时.</module></li>
+</ul>
+<p>当使用这种方式重新发布名字时，下面的指南对于内部或外部借口同样适用.</p>
 
       
     </div>
