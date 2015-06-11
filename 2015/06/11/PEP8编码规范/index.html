@@ -19,7 +19,7 @@ foo = long_function_name(var_one, var_two,">
   YES:
 # 与开头的分隔符对齐.
 foo = long_function_name(var_one, var_two,">
-<meta property="og:updated_time" content="2015-06-11T11:36:38.739Z">
+<meta property="og:updated_time" content="2015-06-11T11:40:35.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PEP 8 编码规范">
 <meta name="twitter:description" content="布局代码缩进  使用四空格.
@@ -343,8 +343,9 @@ foo = long_function_name(
 
 #NO   </span>
  <span class="preprocessor"><span class="keyword">import</span> sys, os</span>
-</code></pre><p>这种方式是允许的:<br>    from subprocess import Popen, PIPE</p>
-<p><strong>导入永远放在文件的开头，在任意模块注释和文档之后，在模块全局变量和常量之前.</strong></p>
+</code></pre><p>这种方式是允许的:</p>
+<pre><code><span class="label">from</span> <span class="keyword">subprocess </span><span class="preprocessor">import</span> <span class="keyword">Popen, </span>PIPE
+</code></pre><p><strong>导入永远放在文件的开头，在任意模块注释和文档之后，在模块全局变量和常量之前.</strong></p>
 <p>导入应该被分为如下组：</p>
 <ol>
 <li>标准库导入</li>
