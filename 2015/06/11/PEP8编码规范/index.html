@@ -5,7 +5,7 @@
   
   <title>PEP 8 编码规范 | 我是皮匠</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="代码缩进  使用四空格.
+  <meta name="description" content="布局代码缩进  使用四空格.
   当代码连续多行时，我们应该使用小括号，中括号，大括号或者悬挂缩进对其隐式行链接.当使用悬挂缩进时应当保证：第一行没有代码，接下来的缩进明确的区分自己作为接下来的行.
   YES:
 # 与开头的分隔符对齐.
@@ -14,15 +14,15 @@ foo = long_function_name(var_one, var_two,">
 <meta property="og:title" content="PEP 8 编码规范">
 <meta property="og:url" content="/2015/06/11/PEP8编码规范/index.html">
 <meta property="og:site_name" content="我是皮匠">
-<meta property="og:description" content="代码缩进  使用四空格.
+<meta property="og:description" content="布局代码缩进  使用四空格.
   当代码连续多行时，我们应该使用小括号，中括号，大括号或者悬挂缩进对其隐式行链接.当使用悬挂缩进时应当保证：第一行没有代码，接下来的缩进明确的区分自己作为接下来的行.
   YES:
 # 与开头的分隔符对齐.
 foo = long_function_name(var_one, var_two,">
-<meta property="og:updated_time" content="2015-06-11T06:00:09.920Z">
+<meta property="og:updated_time" content="2015-06-11T08:27:14.011Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PEP 8 编码规范">
-<meta name="twitter:description" content="代码缩进  使用四空格.
+<meta name="twitter:description" content="布局代码缩进  使用四空格.
   当代码连续多行时，我们应该使用小括号，中括号，大括号或者悬挂缩进对其隐式行链接.当使用悬挂缩进时应当保证：第一行没有代码，接下来的缩进明确的区分自己作为接下来的行.
   YES:
 # 与开头的分隔符对齐.
@@ -235,14 +235,14 @@ foo = long_function_name(var_one, var_two,">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="代码缩进">代码缩进</h2><p>  使用四空格.</p>
+        <h2 id="布局">布局</h2><h3 id="代码缩进">代码缩进</h3><p>  使用四空格.</p>
 <p>  当代码连续多行时，我们应该使用小括号，中括号，大括号或者悬挂缩进对其隐式行链接.当使用悬挂缩进时应当保证：第一行没有代码，接下来的缩进明确的区分自己作为接下来的行.</p>
 <p>  YES:</p>
 <pre><code><span class="comment"># 与开头的分隔符对齐.</span>
 foo = long_function_name(var_one, var_two,
-                                              var_three, var_four)
+                                             var_three, var_four)
 
-<span class="comment"># 使用更多的缩进与其余代码区分.</span>
+<span class="comment"># 使用更多的缩进与后续代码区分.</span>
 <span class="function"><span class="keyword">def</span> <span class="title">long_function_name</span><span class="params">(
             var_one, var_two, var_three,
             var_four)</span>:</span>
@@ -268,8 +268,8 @@ print(var_one)
 foo = long_function_name(
     var_one, <span class="keyword">var_t</span>wo,
     <span class="keyword">var_t</span>hree, var_four)
-</code></pre><p>当if表达式的条件部分太长时就需要跨越多行，使用“if (”构造一个人工的4-space缩进是不提倡的.这会与潜逃在if表达式内的代码构成视觉冲突，因为这部分代码也是四个空格的缩进.、<br>可用的方式有：</p>
-<pre><code><span class="preprocessor"># 没有额外的缩进.</span>
+</code></pre><p>当if表达式的条件部分太长时就需要跨越多行，使用“if (”构造一个人工的4-space缩进是不提倡的.这会与嵌套在if表达式内的代码构成视觉冲突，因为这部分代码也是四个空格的缩进.、<br>可用的方式有：</p>
+<pre><code><span class="preprocessor"># 没有额外的缩进的情况，会产生视觉冲突.</span>
 <span class="keyword">if</span> (<span class="keyword">this_is_one_t</span>hing and
     <span class="keyword">that_is_another_t</span>hing):
     do_something()
@@ -285,8 +285,49 @@ foo = long_function_name(
 <span class="keyword">if</span> (<span class="keyword">this_is_one_t</span>hing
         and <span class="keyword">that_is_another_t</span>hing):
     do_something()
-</code></pre><p>多行构造器的闭合大/中/小括号或者与上一行的第一个非空字符对齐：<br>    my_list = [<br>        1, 2, 3,<br>        4, 5, 6,<br>        ]<br>    result = some_function_that_takes_arguments(<br>        ‘a’, ‘b’, ‘c’,<br>        ‘d’, ‘e’, ‘f’,<br>        )<br>或者与多行构造器第一行的第一个字母对齐：<br>    my_list = [<br>        1, 2, 3,<br>        4, 5, 6,<br>    ]<br>    result = some_function_that_takes_arguments(<br>        ‘a’, ‘b’, ‘c’,<br>        ‘d’, ‘e’, ‘f’,<br>    )</p>
-
+</code></pre><p>多行构造器的闭合大/中/小括号或者与上一行的第一个非空字符对齐：</p>
+<pre><code>my_list = [
+    <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,
+    <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>,
+    ]
+<span class="literal">result</span> = some_function_that_takes_arguments(
+    'a', 'b', 'c',
+    'd', 'e', 'f',
+    )
+</code></pre><p>或者与多行构造器第一行的第一个字母对齐：</p>
+<pre><code>my_list = [
+    <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,
+    <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>,
+]
+<span class="literal">result</span> = some_function_that_takes_arguments(
+    'a', 'b', 'c',
+    'd', 'e', 'f',
+)
+</code></pre><h3 id="Tabs或者Spaces">Tabs或者Spaces</h3><p>像比较来说，Spaces用于缩进更好.</p>
+<p>Tabs只有当剩余的代码已经使用Tabs的情况下才能使用.</p>
+<p>Python 3 不允许tabs和spaces混用.</p>
+<p>Python 2 混用的情况应该转换为使用spaces</p>
+<p>当调用Python命令行使用 -t 选项时，混用会产生warning; 使用 -tt 时， 混用产生错误.</p>
+<h3 id="最大行长度">最大行长度</h3><p>限制所有行不超过79个字符.</p>
+<p>对于只有较少限制（docstrings or comments）的较长的块，行长度应该不超过72个字符.</p>
+<p>限制需要的编辑器窗口宽度可以同时打开多个文件，并且当使用代码检查工具对比两个版本的代码时可以很方便.</p>
+<p>大多数工具中默认的折叠都会破坏代码的视觉结构，从而很难看懂.一些基于web的工具甚至可能不提供动态的行折叠.</p>
+<p>一些团队更偏爱较长的行长度.对于代码的维护专门或主要由一个团队负责并能在这个问题达成协议时，行长度从80涨到100也是可以的,注释和文档仍然被折叠到72个字符.</p>
+<p>Python标准库很保守需要限制行长度到79个字符（文档/注释到72个字符）.</p>
+<p>确定能够恰当的缩进连续行.打断一个二进制操作符是在操作符<em>之后</em>，而不是之前：<br>    class Rectangle(Blob):</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, width, height,
+             color=<span class="string">'black'</span>, emphasis=None, highlight=<span class="number">0</span>)</span>:</span>
+    <span class="keyword">if</span> (width == <span class="number">0</span> <span class="keyword">and</span> height == <span class="number">0</span> <span class="keyword">and</span>
+            color == <span class="string">'red'</span> <span class="keyword">and</span> emphasis == <span class="string">'strong'</span> <span class="keyword">or</span>
+            highlight &gt; <span class="number">100</span>):
+        <span class="keyword">raise</span> ValueError(<span class="string">"sorry, you lose"</span>)
+    <span class="keyword">if</span> width == <span class="number">0</span> <span class="keyword">and</span> height == <span class="number">0</span> <span class="keyword">and</span> (color == <span class="string">'red'</span> <span class="keyword">or</span>
+                                   emphasis <span class="keyword">is</span> <span class="keyword">None</span>):
+        <span class="keyword">raise</span> ValueError(<span class="string">"I don't think so -- values are %s, %s"</span> %
+                        (width, height))
+  Blob.__init__(self, width, height,
+                        color, emphasis, highlight)
+</code></pre>
       
     </div>
     
