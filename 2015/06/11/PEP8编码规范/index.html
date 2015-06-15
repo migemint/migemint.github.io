@@ -19,7 +19,7 @@ foo = long_function_name(var_one, var_two,">
   YES:
 # 与开头的分隔符对齐.
 foo = long_function_name(var_one, var_two,">
-<meta property="og:updated_time" content="2015-06-11T11:40:35.883Z">
+<meta property="og:updated_time" content="2015-06-15T03:19:30.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PEP 8 编码规范">
 <meta name="twitter:description" content="布局代码缩进  使用四空格.
@@ -365,6 +365,123 @@ from mypkg.sibling <span class="preprocessor"><span class="keyword">import</span
 <p>隐式相对导入不应该被使用并且在Python 3中已经被移除了.</p>
 <p><strong>通配符导入（from <module> import *）应该避免，因为他们会使得命名空间中的名字混淆，迷惑读者以及许多自动工具.这里有一个使用通配符导入的特例,当从新发布一个内部接口作为公共API的一部分时.</module></strong></p>
 <p>当使用这种方式重新发布名字时，下面的指南对于内部或外部借口同样适用.</p>
+<h2 id="引号">引号</h2><p>在Python中，单引号字符串与双引号字符串是相同的.本标准不推荐这样使用.选择一个规则（总是使用单引号或者双引号）并且一以贯之.当字符串包含单引号或者双引号时，使用另一个从而避免在字符串中出现反斜杠.这样会更有可读性.</p>
+<h2 id="在表达式中使用空格">在表达式中使用空格</h2><h3 id="小毛病">小毛病</h3><p>避免如下情况种多余的空格：</p>
+<ul>
+<li><p>在大括号，中括号和小括号中.</p>
+<p>  YES: spam(ham[1], {eggs: 2})<br>  No: spam( ham[ 1 ], { eggs: 2 } )</p>
+</li>
+<li><p>在逗号，分号，冒号之前.</p>
+<p>  YES: if x == 4: print x, y; x, y = y, x<br>  NO: if x == 4: print x , y ; x , y = y , x</p>
+</li>
+<li><p>当分片时，冒号就像一个二值操作符，其两边的数量应该相等.在拓展分片时，分号应该有相同数量的空格.</p>
+</li>
+</ul>
+<p>例外： 当参数被省略时，空格也被省略.</p>
+<p>YES:<br>    ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]<br>    ham[lower:upper], ham[lower:upper:], ham[lower::step]<br>    ham[lower+offset : upper+offset]<br>    ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]<br>    ham[lower + offset : upper + offset]</p>
+<p>NO:<br>    ham[lower + offset:upper + offset]<br>    ham[1: 9], ham[1 :9], ham[1:9 :3]<br>    ham[lower : : upper]<br>    ham[ : upper]</p>
+<ul>
+<li><p>在函数调用的参数列表的左括号前不加空格</p>
+<p>  YES： spam(1)<br>  NO  :  spam (1)</p>
+</li>
+<li><p>在索引或分片的左中括号前不加空格</p>
+<p>  YES： dct[‘key’] = lst[index]<br>  NO  :  dct [‘key’] = lst [index]</p>
+</li>
+<li><p>不要为了将一个赋值表达式与另一个赋值表达式对齐而使用超过一个空格</p>
+<p>Yes:</p>
+<p>  x = 1<br>  y = 2<br>  long_variable = 3</p>
+</li>
+</ul>
+<p>No:</p>
+<pre><code><span class="setting">x             = <span class="value"><span class="number">1</span></span></span>
+<span class="setting">y             = <span class="value"><span class="number">2</span></span></span>
+<span class="setting">long_variable = <span class="value"><span class="number">3</span></span></span>
+</code></pre><h3 id="其他建议">其他建议</h3><ul>
+<li>总是在二值操作符两侧添加一个空格：=， +=， -=， ==， &lt;, &gt;, !=, &lt;&gt;, &lt;=, &gt;=, in, not in, is, is nota, and, or, not</li>
+<li><p>如果有不同优先级的操作符一起使用，在低优先级的操作符两边加入空格.但是不要使用超过一个空格，并且保证两边空格数目是一致的</p>
+<p>Yes:</p>
+<p>  i = i + 1<br>  submitted += 1<br>  x = x<em>2 - 1<br>  hypot2 = x</em>x + y<em>y<br>  c = (a+b) </em> (a-b)</p>
+</li>
+</ul>
+<p>No:</p>
+<pre><code><span class="constant">i</span>=i+1
+<span class="constant">submitted</span> +=1
+<span class="constant">x</span> = x * 2 - 1
+<span class="constant">hypot2</span> = x * x + y * y
+<span class="constant">c</span> = (a + b) * (a - b)
+</code></pre><ul>
+<li><p>当=被用于指定关键参数或默认值的时候，不要使用等号</p>
+<p>Yes:</p>
+<p>  def complex(real, imag=0.0):</p>
+<pre><code><span class="keyword">return</span> <span class="built_in">magic</span>(r=<span class="built_in">real</span>, <span class="built_in">i</span>=<span class="built_in">imag</span>)
+</code></pre></li>
+</ul>
+<p>No:</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">complex</span><span class="params">(real, imag = <span class="number">0.0</span>)</span>:</span>
+    <span class="keyword">return</span> magic(r = real, i = imag)
+</code></pre><ul>
+<li>不要在注解函数定义中的=两侧使用空格.并且在:后使用一个空格,在-&gt;两侧各添加一个空格.</li>
+</ul>
+<p>Yes:</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">munge</span><span class="params">(input: AnyStr)</span>:</span>
+<span class="function"><span class="keyword">def</span> <span class="title">munge</span><span class="params">(sep: AnyStr = None)</span>:</span>
+<span class="function"><span class="keyword">def</span> <span class="title">munge</span><span class="params">()</span> -&gt; <span class="title">AnyStr</span>:</span>
+<span class="function"><span class="keyword">def</span> <span class="title">munge</span><span class="params">(input: AnyStr, sep: AnyStr = None, limit=<span class="number">1000</span>)</span>:</span>
+</code></pre><p>No:</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">munge</span><span class="params">(input: AnyStr=None)</span>:</span>
+<span class="function"><span class="keyword">def</span> <span class="title">munge</span><span class="params">(input:AnyStr)</span>:</span>
+<span class="function"><span class="keyword">def</span> <span class="title">munge</span><span class="params">(input: AnyStr)</span>-&gt;<span class="title">PosInt</span>:</span>
+</code></pre><ul>
+<li><p>不鼓励在同一行中写多个表达式</p>
+<p>Yes:</p>
+<p>  if foo == ‘blah’:</p>
+<pre><code><span class="function"><span class="title">do_blah_thing</span><span class="params">()</span></span>
+</code></pre><p>  do_one()<br>  do_two()<br>  do_three()</p>
+</li>
+</ul>
+<p>Rather not:</p>
+<pre><code><span class="keyword">if</span> foo == <span class="string">'blah'</span>: <span class="keyword">do</span>_blah_thing()
+<span class="keyword">do</span>_one(); <span class="keyword">do</span>_two(); <span class="keyword">do</span>_three()
+</code></pre><ul>
+<li><p>有时if/for/while只有很小的body时可以放在一行，但当其有多种可能表达式时，不要这样做.</p>
+<p>Rather not:</p>
+<p>  if foo == ‘blah’: do_blah_thing()<br>  for x in lst: total += x<br>  while t &lt; 10: t = delay()</p>
+</li>
+</ul>
+<p>Definitely not:</p>
+<pre><code><span class="keyword">if</span> foo == <span class="symbol">'blah'</span>: do_blah_thing<span class="literal">()</span>
+<span class="keyword">else</span>: do_non_blah_thing<span class="literal">()</span>
+
+<span class="keyword">try</span>: something<span class="literal">()</span>
+finally: cleanup<span class="literal">()</span>
+
+do_one<span class="literal">()</span>; do_two<span class="literal">()</span>; do_three(long, argument,
+                                                  <span class="built_in">list</span>, like, this)
+
+<span class="keyword">if</span> foo == <span class="symbol">'blah'</span>: one<span class="literal">()</span>; two<span class="literal">()</span>; three<span class="literal">()</span>
+</code></pre><h2 id="注释">注释</h2><p>注释与代码矛盾比没有注释更糟糕.当代码发生改变时应该优先更新注释.</p>
+<p>注释应该完整.如果注释是短语或者句子,首单词应该是大写的，除非是标识符使用小写（never alter the case of identifiers!）</p>
+<p>如果注释很短，句尾的句号可以省略.块注释一般由多个完整的句子组成，每句话都应该以句号结尾.</p>
+<p>在句子结尾的句号后添加两个空格.</p>
+<p>对于来自其他非英语国家的程序员：请使用英语写注释，除非你确定这段代码不会被其他不懂你自己语言的程序员阅读.</p>
+<h3 id="块注释">块注释</h3><p>块注释一般针对一些（或者全部）紧跟在后面的代码而写.注释的每一行以#加一个空格开头.</p>
+<p>块注释内的段用一个#隔开</p>
+<h3 id="内联注释">内联注释</h3><p>有节制的使用内联注释.</p>
+<p>内联注释注释在同一行.内联注释应该以#加一个空格开头，并且与声明隔开至少两个空格.</p>
+<p>如果注释所表述的内容是显而易见的，那么就不需要添加.不要这样做：</p>
+<pre><code><span class="title">x</span> = x + <span class="number">1</span>                                   <span class="comment"># Increment x</span>
+</code></pre><p>但是有时候，这样是有用的：</p>
+<pre><code><span class="title">x</span> = x + <span class="number">1</span>                                   <span class="comment"># Compensate for border</span>
+</code></pre><h3 id="文档字符串">文档字符串</h3><p>PEP257是编写文档的标准.</p>
+<ul>
+<li>为所有public的modules， functions， classes以及methods编写文档字符串.对于非public的metnods不必编写文档字符串，但是应该添加说明的注释.这个注释应该在def行之后.</li>
+<li><p>PEP 257 定义了一个很好地文档字符串标准.注意最重要的,用于标记多行文档字符串结束的” “ ”应该自己单独占一行</p>
+<p>  “””Return a foobang</p>
+<p>  Optional plotz says to frobnicate the bizbaz first.<br>  “””</p>
+</li>
+<li><p>对于单行文档字符串，结束处的“ ” “在同一行</p>
+</li>
+</ul>
 
       
     </div>
